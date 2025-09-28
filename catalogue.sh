@@ -1,0 +1,26 @@
+#!/bin/bash
+source ./common.sh
+app_name=catalogue
+
+check_root
+app_setup
+nodejs_setup
+systemd_setup
+
+cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
+VALIDATE $? "copy mongo repo"
+
+dnf install mongodb-mongosh -y &>>LOG_FILE
+VALIDATE $? "installing mongodb client"
+
+INDEX=$(mongosh mongodb.daws86.fun --quiet --eval "db.getmongo().getDBName().indexOf('catalogue')")
+if [ $INDEX -le 0 ]; then 
+   mongosh --host $MONOGDB_HOST </app/db/master-data.js &>>$LOG_FILE
+   VALIDATE $? "Load $app_name product"
+else 
+   echo -e "$app_name product already loaded ... $Y SKIPPING $N"
+fi
+
+app_restart
+print_total_time
+
