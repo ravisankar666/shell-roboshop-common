@@ -2,8 +2,7 @@
 
 source ./common.sh
 check_root
-app_setup
-app_restart
+
 
 
 dnf module disable nginx -y &>>$LOG_FILE
@@ -33,3 +32,5 @@ VALIDATE $? "copying nginx.conf"
 
 systemctl retstart nginx
 VALIDATE $? "restarting nginx"
+
+print_total_time
