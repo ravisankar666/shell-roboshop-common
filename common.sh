@@ -69,7 +69,7 @@ python_setup(){
 
 app_setup(){
     id roboshop &>>$LOG_FILE
-    if [ $? -en 0]; then 
+    if [ $? -en 0 ]; then 
        useradd --system --home --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
         VALIDATE $? "Creating system user"
     else 
