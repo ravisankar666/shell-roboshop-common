@@ -3,3 +3,15 @@
 source ./common.sh
 check_root
 
+dnf install mysql-server -y &>>$LOG_FILE
+VALIDATE $? "installing mysql server"
+systemctl enable mysqld &>>$LOG_FILE
+VALIDATE $? "enabling mysqld"
+
+sytemctl start mysqld &>>$LOG_FILE
+VALIDATE $? "starting mysqld"
+
+mysql_secure_installation --set-root-pass RoboShop@1 &>>$LOG_FILE
+VALIDATE $? "setting root passwd MYSQL SERVER"
+
+print_total_time
