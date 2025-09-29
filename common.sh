@@ -79,6 +79,10 @@ app_setup(){
     mkdir -p /app
     VALIDATE $? "Creating app directory"
 
+    curl -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>>$LOG_FILE
+    VALIDATE $? "Downloading $app_name application"
+
+
     cd /app
     VALIDATE $? "Changing to app directory"
 
