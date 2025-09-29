@@ -20,13 +20,12 @@ echo "Script started executed at : $(data)" | tee -a $LOG_FILE
 
 
 check_root(){
-      if [ $USERID -ne 0]; then
-         echo "ERROR :: Please run this script with root privillege"
-         exit 1
-      fi   
-
-
+    if [ $USERID -ne 0 ]; then
+        echo "ERROR:: Please run this script with root privelege"
+        exit 1 # failure is other than 0
+    fi
 }
+
 
 VALIDATE(){ # functiom recieve input through args just like a shell scriptargs
     if [ $1 -ne 0 ]; then 
