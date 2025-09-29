@@ -51,7 +51,7 @@ nodejs_setup(){
 }
 
 java_setup(){
-    dnf install mavan -y &>>$LOG_FILE
+    dnf install maven -y &>>$LOG_FILE
     VALIDATE $? "installing maven"
     mvn clean package &>>$LOG_FILE
     VALIDATE $? "Packing the application"
