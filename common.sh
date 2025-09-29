@@ -16,7 +16,7 @@ MYSQL_HOST=mysql.daws86.fun
 
 mkdir -p $LOGS_FOLDER
 
-echo "Script started executed at : $(data)" | tee -a $LOG_FILE
+echo "Script started executed at : $(date)" | tee -a $LOG_FILE
 
 
 check_root(){
