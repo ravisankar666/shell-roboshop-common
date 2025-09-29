@@ -33,7 +33,7 @@ VALIDATE(){ # functiom recieve input through args just like a shell scriptargs
         echo  -e "$2 .... $R FAILURE $N" | tee -a $LOG_FILE
         exit 1
     else 
-        echo -e "$2 ..... $R SUCESS $N" | tee -a $LOG_FILE
+        echo -e "$2 ..... $G SUCESS $N" | tee -a $LOG_FILE
     fi
 
 
@@ -104,6 +104,7 @@ app_restart(){
     systemctl restart $app_name
     VALIDATE $? "Restarted $app_name"
 }
+
 print_total_time(){
     END_TIME=$(date +%s)
     TOTAL_TIME=$(( $END_TIME - $START_TIME ))
