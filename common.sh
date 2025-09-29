@@ -19,7 +19,7 @@ mkdir -p $LOGS_FOLDER
 echo "Script started executed at : $(data)" | tee -a $LOG_FILE
 
 
-check_root(){|
+check_root(){
       if [ $USERID -ne 0]; then
          echo "ERROR :: Please run this script with root privillege"
          exit 1
