@@ -20,7 +20,7 @@ if [ $INDEX -le 0 ]; then
     VALIDATE $? "Load catalogue products"
 else
    
-    echo -e "Catalogue products already loaded ... $Y SKIPPING $N"
+    echo -e "$app_name products already loaded ... $Y SKIPPING $N"
 fi
 
 app_restart
