@@ -1,6 +1,6 @@
 #!/bin/bash
 
-AMI_ID="ami-09c813fb71547fc4f"
+AMI_ID="ami-0220d79f3f480ecf5"
 SG_ID="sg-00c2d6548a23412ff" # replace security group id
 ZONE_ID="Z0043313JVXOCUVVVC7F" # replace with hosted_zone id
 DOMAIN_NAME="daws86.fun"
